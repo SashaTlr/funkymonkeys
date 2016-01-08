@@ -4,14 +4,13 @@ get '/surveys' do
 end
 
 get '/surveys/new' do
-  @survey = Survey.new
   erb :"/surveys/new"
 end
 
 post '/surveys' do
-  @survey = Survey.new(params[:Survey])
+  @survey = Survey.new(params[:survey])
   if @survey.save
-    redirect '/surveys'
+    redirect "/surveys/#{@survey.id}"
   else
     erb :"/surveys/new"
   end
