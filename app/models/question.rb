@@ -3,5 +3,6 @@ class Question < ActiveRecord::Base
   validates :survey_id, presence: true
 
   belongs_to :survey
+  has_many :option_questions
 
 end
