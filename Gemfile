@@ -20,9 +20,9 @@ gem 'bcrypt'
 gem 'shotgun'
 
 gem 'pry'
+gem 'faker'
 
 group :test do
-  gem 'faker'
   gem 'rspec'
   gem 'shoulda-matchers'
 end
