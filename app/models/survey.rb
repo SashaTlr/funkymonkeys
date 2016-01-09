@@ -3,6 +3,10 @@ class Survey < ActiveRecord::Base
   validates :description, presence: true, length: {maximum: 128}
 
   has_many :questions
-  # belongs_to :user
+  has_one :creator, through: users, source: user
+  # belongs_to :user need to add foreign key as a creator
+  # survey takers associations
+  has_many :option_questions, through: :questions
+
 
 end
