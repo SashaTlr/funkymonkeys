@@ -6,24 +6,25 @@
 </div>
 
 <div id = "questions-container">
+  <%= erb :"questions/_new", layout: false%>
+</div>
 
+<div id = "questions-show-container">
 
-  <form class = "new-question-form" method = "post" action = "/surveys/<%=@survey.id%>/question">
-      <label for = "question-name-input" >Question Text:</label>
-      <input id ="question-name-input" name = "question[text]" type = "text"><br>
-
-      <div id = "options-container">
-        <label for = "question-option-input" >Question Response Option:</label>
-        <input class = "question-option-input" name = "options[1]" type = "text"><br>
-
-        <label for = "question-option-input" >Question Response Option:</label>
-        <input class = "question-option-input" name = "options[2]" type = "text"><br>
-
-      </div>
-
-      <input type = "submit" value = "Add Question" class="button">
-
-      <span id ="add-row">Add row<span>
-    </form>
+  <%@survey.questions.each do |question|%>
+    <h3> <%=question.text%>: </h3>
+    <ul>
+      <%question.options do |option| %>
+      <li><%=option.text%><li>
+      <%end%>
+    <ul>
+  <%end%>
 
 </div>
+
+
+<div id = "questions-edit-container">
+  <%= erb :"questions/_edit", layout: false%>
+</div>
+
+

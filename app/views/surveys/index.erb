@@ -8,15 +8,22 @@
   <h3><a href="/surveys/<%=survey.id%>"><%=survey.name%></a></h3>
   <p><%=survey.description%></p>
   <p><%=survey.creator.username%>
-    <%if logged_in? && current_user.id = survey.creator_id%>
-  <span id="edit-survey"><a href="/surveys/<%=survey.id%>/edit">Edit</a></span></p>
+    <%if logged_in? && current_user.id == survey.creator_id %>
+    <span id="edit-survey"><a href="/surveys/<%=survey.id%>/edit">Edit</a></span>
+
+    <span id="delete-survey">
+      <form method = "post" action = '/surveys/<%=survey.id%>'>
+        <input type="hidden" name="_method" value="Delete">
+        <input type="submit" name="delete">
+      </form>
+    </span>
+
+    </p>
     <%end%>
 
  </li>
 </ul>
   <%end%>
 </div>
-
-
 
 
