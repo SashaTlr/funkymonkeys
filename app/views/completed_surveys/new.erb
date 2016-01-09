@@ -1,0 +1,9 @@
+<div id="new-completed_survey">
+  <h1>Welcome to <%=@survey.name%></h1>
+  <h2><%=@survey.description%></h2>
+
+  <form method="POST" action="/completed_surveys">
+    <input type="hidden" name="survey[id]" value="<%=@survey.id%>">
+    <input type="submit" value="Take Survey" class="button">
+  </form>
+</div>
