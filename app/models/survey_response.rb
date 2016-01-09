@@ -1,3 +1,8 @@
 class SurveyResponse < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :survey
+  belongs_to :response
+  belongs_to :option
+  belongs_to :question
+
+  validates :survey_id, :response_id, null: false
 end
