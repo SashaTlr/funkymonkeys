@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :surveys, foreign_key: :creator_id
   has_many :survey_users
+  has_many :survey_responses
+
 
   validates :username, length: {maximum: 50}, presence: true, uniqueness: true
 
