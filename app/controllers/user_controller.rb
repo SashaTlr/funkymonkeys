@@ -1,7 +1,6 @@
 get '/user/:id' do
   @user = User.find(params[:id])
-  @posts = @user.posts
-  @comments = @user.comments
+  @suveys = @user.surveys
   erb :'/users/show'
 end
 

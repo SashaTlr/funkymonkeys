@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include BCrypt
 
   has_many :surveys
-  has_many :completed_surveys
+  has_many :survey_users
 
   validates :username, length: {maximum: 50}, presence: true, uniqueness: true
 
