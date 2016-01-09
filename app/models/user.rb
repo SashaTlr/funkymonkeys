@@ -17,5 +17,8 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def format_time
+    strftime('%B %e, %Y')
+  end
 end
 
