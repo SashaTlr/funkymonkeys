@@ -1,0 +1,25 @@
+<h2>Please Login</h2>
+<form method="POST" action="/login">
+  <input type="text" id="username" name="user[username]" placeholder="username"/>
+  <input type="password" id="user-password" name="user[password]" placeholder="password"/>
+
+  <input type="submit" value="Login" class="button"/>
+</form>
+
+<p>OR</p>
+
+<h2>Create a New Profile</h2>
+<form method="POST" action="/user/new">
+  <input type="text" id="username" name="user[username]" placeholder="username"/>
+  <input type="password" id="user-password" name="user[password]"placeholder="password"/>
+
+  <input type="submit" value="Sign Up" class="button"/>
+</form>
+
+<% if @errors %>
+    <ul>
+      <% @errors.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+<% end %>
