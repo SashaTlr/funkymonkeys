@@ -1,11 +1,14 @@
-<h2> Take a survey! </h2>
+
+<div id = "survey-index-title">
+  <h3>Surveys</h3>
+</div>
 
 <div id="survey-all-list">
   <%@surveys.each do |survey| %>
 <ul>
  <li>
 
-  <h3><a href="/surveys/<%=survey.id%>"><%=survey.name%></a></h3>
+  <h3><a href="/surveys/<%=survey.id%>/completed_surveys/new"><%=survey.name%></a></h3>
   <p><%=survey.description%></p>
   <p><%=survey.creator.username%></p>
     <%if logged_in? && current_user.id == survey.creator %>
@@ -24,6 +27,11 @@
  </li>
 </ul>
   <%end%>
-</div>
 
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <%end%>
+<%end%>
+</div>
 

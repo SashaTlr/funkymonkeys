@@ -1,0 +1,16 @@
+<!-- display question and options -->
+
+
+<div id= "question-display">
+  <h2>Here is the question: <%= @question.text %></h2>
+  <h6>Pick an answer below:</h6>
+
+    <form action="/survey_responses" method="POST">
+      <input type="hidden" name="question[id]" value="<%=@question.id%>">
+      <% @question.options.each do |option| %>
+      <input type="radio" name="option[id]" value="<%= option.id %>"> <%= option.text %><br>
+      <% end %>
+      <input type="submit" value="submit">
+    </form>
+
+</div>

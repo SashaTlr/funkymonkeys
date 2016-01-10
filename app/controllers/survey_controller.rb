@@ -45,6 +45,18 @@ get '/surveys/:id/edit' do
   end
 end
 
+get '/surveys/:id/completed_surveys/new' do
+  @surveys = Survey.all
+  @survey = Survey.find_by(id: params[:id])
+  if logged_in?
+    erb :"completed_surveys/new"
+  else
+    @errors = ["You must be logged in to take this survey."]
+    # "you fucked up, go log in"
+    erb :"surveys/index"
+  end
+end
+
 put '/surveys/:id' do
 @survey = Survey.assign_attributes(params[:survey])
   if @survey.save
