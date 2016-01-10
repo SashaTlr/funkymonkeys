@@ -1,0 +1,24 @@
+  <form class = "new-question-form" method = "post" action = "/surveys/<%=@survey.id%>/question">
+    <label for = "question-name-input" >Question Text:</label>
+    <input id ="question-name-input" name = "question[text]" type = "text"><br>
+
+    <div id = "options-container">
+      <label for = "question-option-input" >Question Response Option:</label>
+      <input class = "question-option-input" name = "options[1]" type = "text"><br>
+      <label for = "question-option-input" >Question Response Option:</label>
+      <input class = "question-option-input" name = "options[2]" type = "text"><br>
+    </div>
+
+    <input type = "submit" value = "Add Question" class="button">
+
+    <span id ="add-row">Add row<span>
+
+  </form>
+
+<% if @errors %>
+    <ul>
+      <% @errors.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+<% end %>
