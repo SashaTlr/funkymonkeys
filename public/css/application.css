@@ -100,3 +100,14 @@ div.container2 a{
   float: right;
 }
 
+#question_link {
+  font-size: 15px;
+  display: inline;
+}
+
+#questions-edit-container p {
+  width: 250px;
+  float: left;
+  margin-bottom: 0px;
+}
+
