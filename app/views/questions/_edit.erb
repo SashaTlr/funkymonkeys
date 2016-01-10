@@ -8,12 +8,7 @@
   </form>
 
 
-  <form class = "delete-question-form" method = "post" action =  "/question/<%=@question.id%>">
-    <input type="hidden" name="question[id]" value="<%=@question.id%>">
-    <input type="hidden" name="_method" value="delete">
-    <input type = "submit" value = "Delete Question" >
 
-  </form>
 
 <% if @errors %>
     <ul>

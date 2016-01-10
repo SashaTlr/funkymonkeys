@@ -14,8 +14,14 @@
     <h4>
       <div id = "questions-edit-container">
         <p><%=question.text%></p>
-          <a href = "/question/<%=question.id%>/edit">[edit question]</a>
+        <a href = "/question/<%=question.id%>/edit">[edit question]</a>
+        <form class = "delete-question-form" method = "post" action =  "/question/<%=question.id%>">
+          <input type="hidden" name="question[id]" value="<%=question.id%>">
+          <input type="hidden" name="_method" value="delete">
+          <input type = "submit" value = "Delete Question" >
+        </form>
       </div>
+
       </h4>
     <ul>
       <%question.options.each do |option| %>
