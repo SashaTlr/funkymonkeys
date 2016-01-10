@@ -1,0 +1,20 @@
+
+<div id = "survey-index-title">
+  <h3>Thank you for taking the survey "<%=@survey.name%>"</h3>
+</div>
+
+
+<div id="completed_survey-question-list">
+<ul>
+  <%@survey_responses.each do |survey_response| %>
+ <li>
+
+  <p>Question: <%=survey_response.question.text%></p>
+  <p>Answer: <%=survey_response.option.text%></p>
+
+ </li>
+ <%end%>
+ <a href="/surveys">Back to Surveys</a>
+</ul>
+
+
