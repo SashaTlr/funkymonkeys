@@ -8,7 +8,7 @@
 <ul>
  <li>
 
-  <h3><a href="/surveys/<%=survey.id%>"><%=survey.name%></a></h3>
+  <h3><a href="/surveys/<%=survey.id%>/completed_surveys/new"><%=survey.name%></a></h3>
   <p><%=survey.description%></p>
   <p><%=survey.creator.username%>
     <%if logged_in? && current_user.id = survey.creator_id%>
@@ -18,5 +18,11 @@
  </li>
 </ul>
   <%end%>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <%end%>
+<%end%>
 </div>
 
