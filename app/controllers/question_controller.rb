@@ -19,15 +19,8 @@ put '/surveys/:id/questions' do
 
   survey = Survey.find(params[:id])
 
-  question = survey.questions.new(params[:question])
+  question = survey.questions.update_attributes(params[:question])
 
-  if question.save
-    parmas[:option].each do |option|
-      new_option = question.options.save(text: option)
-    end
-  else
-    @errors = question.errors.full_messages
-  end
   redirect '/surveys/#{survey.id}'
 
 end

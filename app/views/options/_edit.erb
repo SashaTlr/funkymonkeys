@@ -1,0 +1,12 @@
+  <form class = "edit-option-form" method = "post" action = "/surveys/<%=@survey.id%>/options">
+    <input type="hidden" name="_method" value="put">
+
+    <div id = "options-container">
+      <label for = "option-input" >Question Response Option:</label>
+      <input class = "option-input" name = "options" type = "text" value="<%=option.text%>">
+    </div>
+
+    <input type = "submit" value = "Edit Response" class="button">
+
+  </form>
+

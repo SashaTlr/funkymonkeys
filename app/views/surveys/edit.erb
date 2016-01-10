@@ -1,7 +1,8 @@
-<h2> Create A New Survey:</h2>
+<h2> Edit A Survey:</h2>
 
-<div id = "new-survey-form">
-  <form class = "new-survey-form" method = "post" action = "/surveys">
+<div id = "edit-survey-form">
+  <form class = "edit-survey-form" method = "post" action = "/surveys">
+    <input type="hidden" name="_method" value="put">
     <label for = "survey-name-input" >Name of Survey:</label>
     <input id ="survey-name-input" name = "survey[name]" type = "text" value="<%=@survey.try(:name)%>">
 
