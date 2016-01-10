@@ -25,7 +25,6 @@ get '/surveys/:id' do
 end
 
 post '/surveys' do
-  binding.pry
   @survey = current_user.surveys.new(params[:survey])
   if @survey.save
     redirect "/surveys/#{@survey.id}"

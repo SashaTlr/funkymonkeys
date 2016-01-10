@@ -89,10 +89,12 @@ div.container2 a{
   font-size: 10px;
 }
 
-ul {
+
+#survey-all-list ul {
   list-style: none;
   padding-left: 10px;
 }
+
 
 #posts-index-title {
   float: right;

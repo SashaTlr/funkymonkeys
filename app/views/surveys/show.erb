@@ -21,7 +21,7 @@
       <%question.options.each do |option| %>
       <li>
         <div id = "options-edit-container">
-        <%= erb :"options/_edit", layout: false, locals: {:option => option}%>
+        <%= erb :"options/_edit", layout: false, locals: {:option => option, :question => question}%>
         </div>
       </li>
       <%end%>

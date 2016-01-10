@@ -2,12 +2,14 @@
 
 <div id = "new-survey-form">
   <form class = "new-survey-form" method = "post" action = "/surveys">
+   <p>
     <label for = "survey-name-input" >Name of Survey:</label>
     <input id ="survey-name-input" name = "survey[name]" type = "text">
-
+  </p>
+  <p>
     <label for = "survey-description-input" >Description of Survey:</label>
     <textarea id = "survey-description-input" rows="4" cols= "30" name = "survey[description]"></textarea>
-
-    <input type = "submit" value = "Create Survey" class="button">
+  </p>
+  <p><input type = "submit" value = "Create Survey" class="button"></p>
   </form>
 </div>

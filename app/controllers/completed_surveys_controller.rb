@@ -6,6 +6,7 @@
 post '/completed_surveys' do
 
   #TODO: must be logged in to do this
+  #try @new_survey = current_user.SurveyUser.new(survey_id: params[:survey][:id])
   @new_survey = SurveyUser.new(survey_id: params[:survey][:id])
   @new_survey.user = current_user
   @new_survey.save

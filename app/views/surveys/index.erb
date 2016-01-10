@@ -3,6 +3,15 @@
   <h3>Surveys</h3>
 </div>
 
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <%end%>
+  </ul>
+<%end%>
+
+
 <div id="survey-all-list">
   <%@surveys.each do |survey| %>
 <ul>
@@ -28,10 +37,4 @@
 </ul>
   <%end%>
 
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <%= error %>
-  <%end%>
-<%end%>
-</div>
 
