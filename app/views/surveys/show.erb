@@ -8,6 +8,11 @@
   <%= erb :"questions/_new", layout: false%>
 </div>
 
+<div id="done-button">
+  <input type='button'value='Done Creating Survey' onclick="document.location.href='/surveys';"/>
+</div>
+
+
 <div id = "questions-show-container">
 
   <%@survey.questions.each do |question|%>
@@ -17,15 +22,6 @@
           <a href = "/question/<%=question.id%>/edit">[edit question]</a>
       </div>
       </h4>
-    <ul>
-      <%question.options.each do |option| %>
-      <li>
-        <div id = "options-edit-container">
-        <%= erb :"options/_edit", layout: false, locals: {:option => option, :question => question}%>
-        </div>
-      </li>
-      <%end%>
-    </ul>
   <%end%>
 
 </div>

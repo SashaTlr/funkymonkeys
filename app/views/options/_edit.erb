@@ -1,31 +1,4 @@
-  <form class = "edit-option-form" method = "post" action = "/surveys/<%=@survey.id%>/options">
-    <input type="hidden" name="_method" value="put">
-    <input type="hidden" name="question[id]" value="<%=question.id%>">
 
-      <div id = "options-container">
-        <input type="hidden" name="options[id]" value="<%=option.id%>">
-        <label for = "option-input" >Question Response Option:</label>
-        <input class = "option-input" name = "options[text]" type = "text" value="<%=option.text%>">
-      </div>
+<label for = "option-input" >Question Response Option:</label>
+<input class = "option-input" name = "options[<%=index%>]" type = "text" value="<%=option.text%>">
 
-    <input type = "submit" value = "Edit Response" class="button">
-
-  </form>
-
-
-  <form class = "delete-option-form" method = "post" action = "/surveys/<%=@survey.id%>/options">
-    <input type="hidden" name="_method" value="delete">
-    <input type="hidden" name="question[id]" value="<%=question.id%>">
-    <input type="hidden" name="options[id]" value="<%=option.id%>">
-
-    <input type = "submit" value = "Delete Option" >
-
-  </form>
-
-<% if @errors %>
-    <ul>
-      <% @errors.each do |error_message| %>
-        <li><%= error_message %></li>
-      <% end %>
-    </ul>
-<% end %>
