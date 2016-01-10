@@ -1,16 +1,15 @@
-  <form class = "edit-question-form" method = "post" action =  "/surveys/<%=@survey.id%>/question">
+  <form class = "edit-question-form" method = "post" action =  "/question/<%=@question.id%>">
   <input type="hidden" name="_method" value="put">
-  <input type="hidden" name="question[id]" value="<%=question.id%>">
     <label for = "question-name-input" >Question Text:</label>
-    <input id ="question-name-input" name = "question[text]" type = "text" value="<%=question.text%>"><br>
+    <input id ="question-name-input" name = "question[text]" type = "text" value="<%=@question.text%>"><br>
 
     <input type = "submit" value = "Edit Question" class="button">
 
   </form>
 
 
-  <form class = "delete-question-form" method = "post" action =  "/surveys/<%=@survey.id%>/question/question.id">
-    <input type="hidden" name="question[id]" value="<%=question.id%>">
+  <form class = "delete-question-form" method = "post" action =  "/question/<%=@question.id%>">
+    <input type="hidden" name="question[id]" value="<%=@question.id%>">
     <input type="hidden" name="_method" value="delete">
     <input type = "submit" value = "Delete Question" >
 

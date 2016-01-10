@@ -17,20 +17,18 @@ get '/question/:id/edit' do
     erb :"questions/_edit"
 end
 
-put '/surveys/:id/question' do
-  survey = Survey.find(params[:id])
-  question = Question.find_by(id: params[:question][:id]).assign_attributes(params[:question])
+put '/question/:id' do
+  question = Question.find(params[:id])
+  question.assign_attributes(params[:question])
   if !question.save
     @errors = question.errors.full_messages
   end
-
-  redirect "/surveys/#{survey.id}"
+  redirect "/surveys/#{question.survey_id}"
 end
 
-delete '/surveys/:id/question' do
-  survey_id = params[:id]
-  binding.pry
-  question = Question.find_by(id: params[:question][:id])
+delete '/question/:id' do
+  question = Question.find(params[:id])
+  survey = question.survey
   question.destroy
-  redirect "/surveys/#{survey_id}"
+  redirect "/surveys/#{survey.id}"
 end
