@@ -12,3 +12,20 @@
 
   </form>
 
+
+  <form class = "delete-option-form" method = "post" action = "/surveys/<%=@survey.id%>/options">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="question[id]" value="<%=question.id%>">
+    <input type="hidden" name="options[id]" value="<%=option.id%>">
+
+    <input type = "submit" value = "Delete Option" >
+
+  </form>
+
+<% if @errors %>
+    <ul>
+      <% @errors.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+<% end %>
