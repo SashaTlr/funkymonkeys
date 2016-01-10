@@ -7,3 +7,9 @@
     <input type="submit" value="Take Survey" class="button">
   </form>
 </div>
+<% if @errors %>
+  <%@errors.each do |error|%>
+    <%=error%>
+  <%end%>
+  <a href="/surveys">Back to Surveys</a>
+<%end%>

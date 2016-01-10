@@ -51,7 +51,7 @@ get '/surveys/:id/completed_surveys/new' do
   else
     @surveys = Survey.all
     @errors = ["You must be logged in to take this survey."]
-    erb :"/surveys/index"
+    erb :"surveys/index"
   end
 end
 
