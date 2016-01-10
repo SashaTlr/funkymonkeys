@@ -1,19 +1,13 @@
   <form class = "edit-question-form" method = "post" action =  "/question/<%=@question.id%>">
   <input type="hidden" name="_method" value="put">
     <label for = "question-name-input" >Question Text:</label>
-    <input id ="question-name-input" name = "question[text]" type = "text" value="<%=@question.text%>"><br>
 
+    <input id ="question-name-input" name = "question[text]" type = "text" value="<%=question.text%>"><br>
+      <div id = "options-container">
+      <%question.options.each.with_index do |option, i| %>
+        <%= erb :"options/_edit", layout: false, locals: {:option => option, :index => i}%>
+      <%end%>
+      </div>
     <input type = "submit" value = "Edit Question" class="button">
-
   </form>
 
-
-
-
-<% if @errors %>
-    <ul>
-      <% @errors.each do |error_message| %>
-        <li><%= error_message %></li>
-      <% end %>
-    </ul>
-<% end %>

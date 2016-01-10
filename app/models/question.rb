@@ -8,5 +8,11 @@ class Question < ActiveRecord::Base
   validates :text, presence: true, length: {maximum: 512}
   validates :survey_id, presence: true
 
+  def delete_options
+    self.options.each do |option|
+      option.destroy
+    end
+  end
+
 
 end
