@@ -14,22 +14,27 @@ end
 
 get '/question/:id/edit' do
   @question = Question.find(params[:id])
+  if request.xhr?
+    erb :"questions/_edit", layout: false
+  else
     erb :"questions/_edit"
+  end
 end
 
 
 put '/question/:id' do
-
   question = Question.find(params[:id])
   question.update_attributes(params[:question])
-
   question.delete_options
-
   params[:options].each do |option|
     question.options << Option.find_or_create_by(text: option[1])
   end
-
-  redirect "/surveys/#{question.survey_id}"
+  @survey = question.survey
+  if request.xhr?
+    erb :"questions/_show", layout: false
+  else
+    redirect "/surveys/#{question.survey_id}"
+  end
 end
 
 delete '/question/:id' do
