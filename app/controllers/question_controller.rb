@@ -12,6 +12,11 @@ post '/surveys/:id/question' do
   redirect "/surveys/#{@survey.id}"
 end
 
+get '/question/:id/edit' do
+  @question = Question.find(params[:id])
+    erb :"questions/_edit"
+end
+
 put '/surveys/:id/question' do
   survey = Survey.find(params[:id])
   question = survey.questions.update_attributes(params[:question])
