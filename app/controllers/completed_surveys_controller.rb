@@ -1,4 +1,3 @@
-
 post '/completed_surveys' do
   if !current_user.survey_users.find_by(survey_id: params[:survey][:id])
     @new_survey = current_user.survey_users.create(survey_id: params[:survey][:id])
@@ -18,7 +17,8 @@ get '/completed_surveys/:id/survey_responses/new' do
   if @question
     erb :'/option_questions/show'
   else
-    "we are done"
+    @survey_responses = current_user.survey_responses.where(survey: @survey)
+    erb :'completed_surveys/show'
   end
 end
 
