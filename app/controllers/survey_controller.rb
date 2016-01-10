@@ -28,7 +28,6 @@ post '/surveys' do
   binding.pry
   @survey = current_user.surveys.new(params[:survey])
   if @survey.save
-    binding.pry
     redirect "/surveys/#{@survey.id}"
   else
     @errors = @survey.errors.full_messages

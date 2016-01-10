@@ -5,13 +5,13 @@ post '/surveys/:id/question' do
 
   if question.save
     params[:options].each do |option|
-      new_option = question.options.create(text: option)
+      new_option = question.options.create(text: option[1])
     end
   else
     @errors = question.errors.full_messages
   end
 
-  erb :"surveys/show"
+  redirect "/surveys/#{@survey.id}"
 end
 
 

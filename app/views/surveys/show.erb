@@ -14,10 +14,10 @@
   <%@survey.questions.each do |question|%>
     <h3> <%=question.text%>: </h3>
     <ul>
-      <%question.options do |option| %>
-      <li><%=option.text%><li>
+      <%question.options.each do |option| %>
+      <li><%=option.text%></li>
       <%end%>
-    <ul>
+    </ul>
   <%end%>
 
 </div>
