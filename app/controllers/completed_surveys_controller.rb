@@ -12,7 +12,6 @@ end
 get '/completed_surveys/:id/survey_responses/new' do
   @survey_user = SurveyUser.find(params[:id])
   @survey = @survey_user.survey
-  binding.pry
   @question = @survey.next_question(current_user)
   if @question
     erb :'/option_questions/show'

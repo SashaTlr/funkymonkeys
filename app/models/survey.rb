@@ -13,7 +13,6 @@ class Survey < ActiveRecord::Base
     questions = self.questions.map do |question|
       question
     end
-    binding.pry
     questions[current_question_number]
   end
 end
