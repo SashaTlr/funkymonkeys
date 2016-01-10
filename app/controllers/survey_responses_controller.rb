@@ -1,4 +1,7 @@
-post 'survey_responses' do
-  @survey_response = SurveyResponse.create(params[:survey_response])
-  redirect "completed_surveys/#{survey_response.survey_id}/survey_responses/new"
+post '/survey_responses' do
+  question = Question.find(params[:question][:id])
+  survey = question.survey
+  @survey_response = SurveyResponse.new(survey: survey, question: question, user: current_user, option_id: params[:option][:id])
+  @survey_response.save
+  redirect "/completed_surveys/#{survey.id}/survey_responses/new"
 end

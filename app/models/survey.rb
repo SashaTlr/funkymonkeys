@@ -10,7 +10,6 @@ class Survey < ActiveRecord::Base
 
   def next_question(user)
     current_question_number = SurveyResponse.where(survey_id: self.id, user_id: user.id ).count
-
     questions = self.questions.map do |question|
       question
     end
