@@ -19,12 +19,17 @@ end
 
 put '/surveys/:id/question' do
   survey = Survey.find(params[:id])
-  question = survey.questions.update_attributes(params[:question])
+  question = Question.find_by(id: params[:question][:id]).assign_attributes(params[:question])
+  if !question.save
+    @errors = question.errors.full_messages
+  end
+
   redirect "/surveys/#{survey.id}"
 end
 
 delete '/surveys/:id/question' do
   survey_id = params[:id]
+  binding.pry
   question = Question.find_by(id: params[:question][:id])
   question.destroy
   redirect "/surveys/#{survey_id}"
