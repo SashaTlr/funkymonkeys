@@ -18,7 +18,8 @@
   <%@survey.questions.each do |question|%>
     <h4>
       <div id = "questions-edit-container">
-      <%= erb :"questions/_edit", layout: false, locals: {:question => question}%>
+        <p><%=question.text%></p>
+          <a href = "/question/<%=question.id%>/edit">[edit question]</a>
       </div>
       </h4>
   <%end%>

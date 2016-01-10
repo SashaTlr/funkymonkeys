@@ -65,12 +65,6 @@ put '/surveys/:id' do
   end
 end
 
-get '/surveys/:id/complete_surveys/new' do
-  @survey = Survey.find_by(id: params[:id])
-
-  erb :"completed_surveys/new"
-end
-
 delete '/surveys/:id' do
   @survey = Survey.find_by(id: params[:id])
   @survey.destroy
