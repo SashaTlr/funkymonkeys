@@ -4,7 +4,7 @@ end
 
 get '/logout' do
   session.clear
-  redirect :'/posts'
+  redirect :'/'
 end
 
 post '/login' do
