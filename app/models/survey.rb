@@ -16,7 +16,6 @@ class Survey < ActiveRecord::Base
     end
     questions[current_question_number]
   end
-
 end
 
 
