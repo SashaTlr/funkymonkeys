@@ -9,7 +9,6 @@ post '/completed_surveys' do
   end
 end
 
-
 get '/completed_surveys/:id/survey_responses/new' do
   @survey_user = SurveyUser.find(params[:id])
   @survey = @survey_user.survey
@@ -17,7 +16,7 @@ get '/completed_surveys/:id/survey_responses/new' do
   if @question
     erb :'/option_questions/show'
   else
-    redirect "/completed_surveys/#{params[:id]}"
+    redirect "/completed_surveys/#{@survey_user.id}"
   end
 end
 
@@ -26,5 +25,3 @@ get '/completed_surveys/:id' do
     @survey_responses = current_user.survey_responses.where(survey: @survey)
     erb :'completed_surveys/show'
 end
-
-
