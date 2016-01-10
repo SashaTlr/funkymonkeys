@@ -1,4 +1,4 @@
-  <form class = "new-question-form" method = "post" action = "/surveys/<%=@survey.id%>">
+  <form class = "new-question-form" method = "post" action = "/surveys/<%=@survey.id%>/question">
     <label for = "question-name-input" >Question Text:</label>
     <input id ="question-name-input" name = "question[text]" type = "text"><br>
 
@@ -14,3 +14,11 @@
     <span id ="add-row">Add row<span>
 
   </form>
+
+<% if @errors %>
+    <ul>
+      <% @errors.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+<% end %>

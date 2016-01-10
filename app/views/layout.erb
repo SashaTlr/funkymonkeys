@@ -25,12 +25,10 @@
   <nav>
     <h1><a href="/">Funkey Monkey Surveys</a></h1>
     <% if logged_in? %>
-        <a href="/users"><%=current_user.username%></a> | <a href="/logout">logout</a>
+        <a href="/users"><%=current_user.username%></a> | <a href="/surveys/new">create a new survey</a> | <a href="/logout">logout</a>
       <% else %>
         <a href="/login">register or login</a>
       <% end %>
-    | <a href="/">home</a>
-    | <a href="/surveys/new">create a new survey</a>
   </nav>
 </header>
 

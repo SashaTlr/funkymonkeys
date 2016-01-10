@@ -1,19 +1,34 @@
 get '/surveys' do
   @surveys = Survey.all
-
   erb :"surveys/index"
 end
 
 get '/surveys/new' do
-  erb :"surveys/new"
+  if logged_in?
+    erb :"surveys/new"
+  else
+    redirect '/login'
+  end
 end
 
+get '/surveys/:id' do
+  @survey = Survey.find(params[:id])
+  if logged_in?
+    if current_user.id == @survey.creator_id
+      erb :"surveys/show"
+    else
+      redirect '/surveys/#{@survey.id}/complete_surveys/new'
+    end
+  else
+    redirect '/login'
+  end
+end
 
 post '/surveys' do
-  @survey = Survey.new(params[:survey])
-  @survey.creator_id = session[:user_id]
   binding.pry
+  @survey = current_user.surveys.new(params[:survey])
   if @survey.save
+    binding.pry
     redirect "/surveys/#{@survey.id}"
   else
     @errors = @survey.errors.full_messages
@@ -21,18 +36,10 @@ post '/surveys' do
   end
 end
 
-get '/surveys/:id' do
-  @survey = Survey.find(params[:id])
-  if logged_in? && current_user.id = @survey.creator_id
-    erb :"surveys/show"
-  else
-    redirect '/surveys/:id/complete_surveys/new'
-  end
-end
 
 get '/surveys/:id/edit' do
  @survey = Survey.find(params[:id])
-  if logged_in? && current_user.id = @survey.creator_id
+  if current_user.id = @survey.creator_id
     erb :"surveys/edit"
   else
     redirect '/surveys'
@@ -51,6 +58,7 @@ end
 
 get '/surveys/:id/complete_surveys/new' do
   @survey = Survey.find_by(id: params[:id])
+
   erb :"completed_surveys/new"
 end
 
