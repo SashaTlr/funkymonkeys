@@ -7,6 +7,37 @@ $(document).ready(function() {
   });
 
 
+  $("#questions-show-container").on("click", ".question_link", function (event){
+    var x = event.target
+    event.preventDefault();
+   $.ajax({
+    type: "GET",
+    url: $(this).attr("href")
+    }).done(function(response) {
+      $(x.parentElement).html(response);
+    });
+  });
+
+
+  $("#questions-show-container").on("submit", ".edit-question-form", function (event){
+    var x = event.target
+    event.preventDefault();
+   $.ajax({
+    type: "PUT",
+    url: $(this).attr("action"),
+    data: $(this).serialize()
+    }).done(function(response) {
+      $(x).html(response);
+    });
+  });
+
 })
 
-});
+
+
+
+
+
+
+
+

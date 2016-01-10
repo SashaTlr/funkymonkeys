@@ -1,0 +1,17 @@
+  <%@survey.questions.each do |question|%>
+      <div id = "Question_<%=question.id%>_container">
+        <p><%=question.text%></p>
+        <a class = "question_link" href = "/question/<%=question.id%>/edit">[edit question]</a>
+        <form class = "delete-question-form" method = "post" action =  "/question/<%=question.id%>">
+          <input type="hidden" name="question[id]" value="<%=question.id%>">
+          <input type="hidden" name="_method" value="delete">
+          <input type = "submit" value = "Delete Question" >
+        </form>
+    <ul>
+      <%question.options.each do |option|%>
+      <li> Option: <%=option.text %></li>
+     <%end%>
+    </ul>
+      </div>
+
+  <%end%>

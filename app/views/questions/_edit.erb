@@ -2,19 +2,12 @@
   <input type="hidden" name="_method" value="put">
     <label for = "question-name-input" >Question Text:</label>
 
-    <input id ="question-name-input" name = "question[text]" type = "text" value="<%=question.text%>"><br>
+    <input id ="question-name-input" name = "question[text]" type = "text" value="<%=@question.text%>"><br>
       <div id = "options-container">
-      <%question.options.each.with_index do |option, i| %>
+      <%@question.options.each.with_index do |option, i| %>
         <%= erb :"options/_edit", layout: false, locals: {:option => option, :index => i}%>
       <%end%>
       </div>
     <input type = "submit" value = "Edit Question" class="button">
   </form>
 
-
-  <form class = "delete-question-form" method = "post" action =  "/question/<%=@question.id%>">
-    <input type="hidden" name="question[id]" value="<%=@question.id%>">
-    <input type="hidden" name="_method" value="delete">
-    <input type = "submit" value = "Delete Question" >
-
-  </form>

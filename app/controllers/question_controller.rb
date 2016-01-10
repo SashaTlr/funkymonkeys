@@ -12,41 +12,34 @@ post '/surveys/:id/question' do
   redirect "/surveys/#{@survey.id}"
 end
 
-<<<<<<< HEAD
-put '/surveys/:id/question/edit' do
-  survey = Survey.find(params[:id])
-  question = Question.find_by(id: params[:question][:id])
-  question.update_attributes(params[:question])
-
-  question.delete_options
-
-  params[:options].each do |option|
-    question.options << Option.find_or_create_by(text: option[1])
-=======
 get '/question/:id/edit' do
   @question = Question.find(params[:id])
+  if request.xhr?
+    erb :"questions/_edit", layout: false
+  else
     erb :"questions/_edit"
+  end
 end
+
 
 put '/question/:id' do
   question = Question.find(params[:id])
-  question.assign_attributes(params[:question])
-  if !question.save
-    @errors = question.errors.full_messages
->>>>>>> 84c3be05a3293b63fb3f8c09c4d88fa7fd8d933e
+  question.update_attributes(params[:question])
+  question.delete_options
+  params[:options].each do |option|
+    question.options << Option.find_or_create_by(text: option[1])
   end
-  redirect "/surveys/#{question.survey_id}"
+  @survey = question.survey
+  if request.xhr?
+    erb :"questions/_show", layout: false
+  else
+    redirect "/surveys/#{question.survey_id}"
+  end
 end
 
-<<<<<<< HEAD
-delete '/surveys/:id/question' do
-  survey_id = params[:id]
-  question = Question.find_by(id: params[:question][:id])
-=======
 delete '/question/:id' do
   question = Question.find(params[:id])
   survey = question.survey
->>>>>>> 84c3be05a3293b63fb3f8c09c4d88fa7fd8d933e
   question.destroy
   redirect "/surveys/#{survey.id}"
 end
