@@ -12,10 +12,18 @@
 <div id = "questions-show-container">
 
   <%@survey.questions.each do |question|%>
-    <h3> <%=question.text%>: </h3>
+    <h4>
+      <div id = "questions-edit-container">
+      <%= erb :"questions/_edit", layout: false, locals: {:question => question}%>
+      </div>
+      </h4>
     <ul>
       <%question.options.each do |option| %>
-      <li><%=option.text%></li>
+      <li>
+        <div id = "options-edit-container">
+        <%= erb :"options/_edit", layout: false, locals: {:option => option}%>
+        </div>
+      </li>
       <%end%>
     </ul>
   <%end%>
