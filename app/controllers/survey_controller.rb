@@ -45,14 +45,13 @@ get '/surveys/:id/edit' do
 end
 
 get '/surveys/:id/completed_surveys/new' do
-  @surveys = Survey.all
   @survey = Survey.find_by(id: params[:id])
   if logged_in?
     erb :"completed_surveys/new"
   else
+    @surveys = Survey.all
     @errors = ["You must be logged in to take this survey."]
-    # "you fucked up, go log in"
-    erb :"surveys/index"
+    erb :"/surveys/index"
   end
 end
 
