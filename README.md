@@ -1,12 +1,5 @@
-<!-- Team name and team members
-A brief description of your MVP
-A link to your team Trello board
-A link to your wireframes
-A brief description of your team dynamic and git workflow. -->
-
-
 # FunkyMonkeys
-Funky Monkeys is a survey app that uses JS and AJAX, Sinatra, and Ruby.
+Funky Monkeys is a survey app that uses JS and AJAX, Sinatra, and Ruby. Question and Answer forms are submitted via one post route. Forms are dynamic via jQuery to allow for additional answers to be posted to a question.
 
 ## Learning Competencies
 
