@@ -1,5 +1,5 @@
 # FunkyMonkeys
-Funky Monkeys is a survey app that uses JS and AJAX, Sinatra, and Ruby. Question and Answer forms are submitted via one post route. Forms are dynamic via jQuery to allow for additional answers to be posted to a question.
+Funky Monkeys is a survey app that uses JS and AJAX, Sinatra, and Ruby. Question and Answer forms are submitted via one post route. Forms are dynamic via jQuery to allow for additional answers to be posted to a question. Questions are presented via AJAX to users when they are taking a survey.
 
 ## Learning Competencies
 
