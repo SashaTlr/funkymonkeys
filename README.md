@@ -28,3 +28,13 @@ $ rake db:migrate
 $ be shotgun
 ```
 - Navigate to localhost to view the site.
+
+####Screenshots
+Homepage has list of available surveys, with option to edit/delete surveys that you've created. Nav bar contains a log in and register link.
+![Homepage](/imgs/homepage.png)
+
+Edit page is available to user for all surveys that user has created. Additional answers can be added (via jQuery), answers can be deleted, and questions can be modified or deleted.
+![Edit](/imgs/edit.png)
+
+User can take a survey, which loads each question using AJAX request.
+![Take Survey](/imgs/take_survey.png)
