@@ -25,6 +25,6 @@ $ rake db:migrate
 ```
 - Run server using command
 ```bash
-$ rails s
+$ be shotgun
 ```
 - Navigate to localhost to view the site.
